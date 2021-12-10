@@ -22,7 +22,7 @@ node('main'){
         name: 'Update_Param'
       ),
       string(
-        defaultValue: 'Siva AWS #$@!%', 
+        defaultValue: 'mahesh', 
         name: 'STRING_PARAMETER', 
         trim: true
       )
@@ -40,7 +40,7 @@ stage('Stage 1'){
           def returnValue = input message: 'Need some input', submitter: '123456',
           parameters: [
             string(defaultValue: '', description: '', name: 'Name'),
-            choice(choices: ['Siva' , 'Vignesh'], name: 'CHOCIE_Param')
+            choice(choices: ['mahesh' , 'Vignesh'], name: 'CHOCIE_Param')
           ]
           println(returnValue)
       }
