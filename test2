@@ -1,0 +1,15 @@
+node('master'){
+      booleanParam(defaultValue: true, description: '', name: 'Factor')
+stage('Stage 1'){    
+    if(factor == true){
+      println("As value is " + factor)
+          def returnValue = input message: 'Need some input',
+          println(returnValue)
+    }
+	 if(params.Update_Param){
+    println('print the output')
+    currentBuild.result = 'SUCCESS'
+    return
+  }
+  }
+  }
