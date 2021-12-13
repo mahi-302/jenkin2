@@ -1,0 +1,25 @@
+node('main'){
+    parameters([
+      booleanParam(
+        defaultValue: true, 
+        description: '', 
+        name: 'factor'
+      ),
+   ])
+  if(params.Update_Param){
+    println('print the output')
+    currentBuild.result = 'SUCCESS'
+    return
+  }
+stage('Stage 1'){    
+    if(factor == true){
+      println("As value is " + factor)
+      timeout(unit: 'SECONDS', time: 60) {
+          def returnValue = input message: 'Need some input', submitter: '123456',
+          ]
+          println(returnValue)
+      }
+      
+    }
+  }
+}
