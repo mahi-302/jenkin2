@@ -1,0 +1,9 @@
+node('main'){
+    stage('Launch configuration'){
+        def cmd = "aws autoscaling create-launch-configuration --launch-configuration-name my-lc3-cli --image-id ami-07c136ae69d0b302f  --instance-type t2.micro --security-groups sg-03723ff32a5606bda --key-name " + Ec2all + " --user-data \$'" + userdata + "' --region us-east-2"
+        sh (cmd)
+    }
+    stage('Auto scaling'){
+        sh "aws autoscaling create-auto-scaling-group --auto-scaling-group-name my-asg3-cli --launch-configuration-name my-lc3-cli --max-size 2 --min-size 1 --availability-zones us-east-2c --region us-east-2"
+    }
+}
